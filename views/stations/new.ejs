@@ -1,0 +1,39 @@
+<% layout('layouts/boilerplate')%>
+<div class="container justify-content-center align-items-center mt-5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 col-xl-4 offset-xl-4">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h5 class="card-title">New Station</h5>
+                    <form action="/stations" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label class="form-label" for="location">Location</label>
+                            <input class="form-control" type="text" id="location" name="station[location]" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="date">Date (YYYY/MM/DD)</label>
+                            <input class="form-control" type="text" id="date" name="station[date]" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="image" class="form-label">Images</label>
+                            <input class="form-control" type="file" id="image" name="image" multiple>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="description">Description</label>
+                            <textarea class="form-control" type="text" id="description" name="station[description]"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <button class="btn btn-success">Add Station</button>      
+                        </div> 
+                    </form>
+                    <a href="/stations" class="btn btn-secondary active" role="button" aria-pressed="true">Back to All Stations</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

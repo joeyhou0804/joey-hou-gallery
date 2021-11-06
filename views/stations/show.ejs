@@ -1,0 +1,76 @@
+<% layout('layouts/boilerplate')%>
+
+<div class="row">
+    <div class="col-6">
+        <div id="stationCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <% station.images.forEach((img, i) => { %>
+                <div class="carousel-item <%= i === 0 ? 'active' : ''%>">
+                    <img src="<%= img.url%>" class="d-block w-100" alt="">
+                </div>
+                <% }) %>
+            </div>
+            <% if(station.images.length > 1) {%>
+            <button class="carousel-control-prev" type="button" data-bs-target="#stationCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#stationCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+            <% } %>
+        </div>
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title"><%= station.location %></h5>
+                <p class="card-text"><%= station.description %></p>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item text-muted"><%= station.location %></li>
+                <li class="list-group-item">Visited by <%= station.author.username %></li>
+            </ul>
+            <% if(currentUser && station.author._id.equals(currentUser._id)) {%>
+            <div class="card-body">
+                <a class="card-link btn btn-info" href="/stations/<%=station._id%>/edit">Edit</a>
+                <form class="d-inline" action="/stations/<%=station._id%>?_method=DELETE" method="POST">
+                    <button class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+            <% } %>
+        </div>
+    </div>
+    <div class="col-6">
+        <div id='map' style='width: 100%; height: 300px;'></div>
+    </div>
+</div>
+<footer>
+    <a href="/stations" class="btn btn-secondary active" role="button" aria-pressed="true">All Stations</a>
+</footer>
+
+<script>
+    const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
+    const station = <%-JSON.stringify(station) %>;
+
+    mapboxgl.accessToken = mapToken;
+    const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: station.geometry.coordinates,
+        zoom: 7
+    });
+
+    map.addControl(new mapboxgl.NavigationControl());
+
+    new mapboxgl.Marker()
+        .setLngLat(station.geometry.coordinates)
+        .setPopup(
+            new mapboxgl.Popup({offset: 25})
+            .setHTML(
+                `<h3>${station.location}</h3>`
+            )
+        )
+        .addTo(map)
+
+    
+</script>
