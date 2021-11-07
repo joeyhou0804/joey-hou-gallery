@@ -15,7 +15,10 @@ const stations = require('../controllers/stations');
 
 router.route('/')
     .get(catchAsync(stations.index))
-    .post(isLoggedIn, upload.array('image'), upload.single('maps'), validateStation, catchAsync(stations.createStation));
+    .post(isLoggedIn, upload.fields([
+        {name: 'image'},
+        {name: 'maps'}
+    ]), validateStation, catchAsync(stations.createStation));
 
 router.get('/new', isLoggedIn, stations.renderNewForm);
 
