@@ -32,11 +32,11 @@
                             <% }) %>
                         </div>
                         <div class="mb-3">
-                            <label for="map" class="form-label">Add Map</label>
-                            <input class="form-control" type="file" id="map" name="map">
+                            <label for="maps" class="form-label">Add Map</label>
+                            <input class="form-control" type="file" id="maps" name="maps">
                         </div>
                         <div class="mb-3">
-                            <% station.map.forEach(function(img, i) { %>
+                            <% station.maps.forEach(function(img, i) { %>
                                 <img src="<%=img.thumbnail %>" class="img-thumbnail" alt="">
                                 <div class="form-check-inline">
                                     <input type="checkbox" id="image-<%= i%>" name="deleteImages[]" value="<%= img.filename%>">

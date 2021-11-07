@@ -16,7 +16,7 @@ const opts = {toJSON: {virtuals: true}};
 const StationSchema = new Schema({
     location: String,
     images: [ImageSchema],
-    map: [ImageSchema],
+    maps: [ImageSchema],
     date: String,
     train: String,
     description: String,
