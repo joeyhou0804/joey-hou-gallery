@@ -27,8 +27,8 @@
                 <p class="card-text"><%= station.description %></p>
             </div>
             <ul class="list-group list-group-flush">
-                <li class="list-group-item text-muted"><%= station.location %></li>
-                <li class="list-group-item">Visited by <%= station.author.username %></li>
+                <li class="list-group-item text-muted"><%= station.train %></li>
+                <li class="list-group-item">Visited by Joey Hou on <%= station.date %></li>
             </ul>
             <% if(currentUser && station.author._id.equals(currentUser._id)) {%>
             <div class="card-body">
@@ -41,7 +41,7 @@
         </div>
     </div>
     <div class="col-6">
-        <div id='map' style='width: 100%; height: 300px;'></div>
+        <div id='map' style='width: 100vw; height: 300px;'></div>
     </div>
 </div>
 <footer>
