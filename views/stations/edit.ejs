@@ -32,9 +32,15 @@
                             <% }) %>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="station[haveMap]" id="haveMap" value="<%=station.haveMap %>" checked>
+                            <input class="form-check-input" type="radio" name="haveMap" id="haveMap" value="<%=station.haveMap %>" checked>
                             <label class="form-check-label" for="haveMap">
-                              Is there a route map?
+                              There is a route map.
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="haveMap" id="exampleRadios2" >
+                            <label class="form-check-label" for="exampleRadios2">
+                              No route map.
                             </label>
                         </div>
                         <div class="mb-3">
