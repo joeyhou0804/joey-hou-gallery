@@ -17,7 +17,7 @@ router.route('/')
     .get(catchAsync(stations.index))
     .post(isLoggedIn, upload.fields([
         {name: 'image'},
-        {name: 'maps'}
+        {name: 'map'}
     ]), validateStation, catchAsync(stations.createStation));
 
 router.get('/new', isLoggedIn, stations.renderNewForm);
