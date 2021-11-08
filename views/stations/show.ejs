@@ -42,7 +42,7 @@
     </div>
     <div class="col-6">
         <div id='map' style='width: 100%; height: 300px;'></div>
-        <% if(station.images.length >= 1 && station.haveMap.equals("Y")) { %>
+        <% if(station.images.length >= 1 && station.haveMap[0] === 'Y') { %>
         <div class="card mb-3">
             <div class="card-body">
                 <h5 class="card-title">Route Map</h5>
