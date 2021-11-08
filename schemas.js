@@ -6,7 +6,7 @@ module.exports.stationSchema = Joi.object({
         // image: Joi.string().required(),
         date: Joi.string().required(),
         train: Joi.string(),
-        haveMap: Joi.boolean(),
+        haveMap: Joi.string(),
         description: Joi.string(),
     }).required(),
     deleteImages: Joi.array()
