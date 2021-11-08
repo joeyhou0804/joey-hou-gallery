@@ -31,17 +31,9 @@
                                 <label for="image-<%= i%>">Delete?</label>
                             <% }) %>
                         </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="haveMap" id="haveMap" value="<%=station.haveMap %>" checked>
-                            <label class="form-check-label" for="haveMap">
-                              There is a route map.
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="haveMap" id="exampleRadios2" >
-                            <label class="form-check-label" for="exampleRadios2">
-                              No route map.
-                            </label>
+                        <div class="mb-3">
+                            <label class="form-label" for="haveMap">Is there a route map? (Y/N)</label>
+                            <input class="form-control" type="text" id="haveMap" name="station[haveMap]" value="<%=station.haveMap %>" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="description">Description</label>
