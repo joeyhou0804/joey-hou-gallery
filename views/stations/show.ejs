@@ -42,11 +42,11 @@
     </div>
     <div class="col-6">
         <div id='map' style='width: 100%; height: 300px;'></div>
-        <% station.maps.forEach((img, i) => { %>
-            <div class="image-map <%= i === 0 ? 'active' : ''%>">
-                <img src="<%= img.url%>" class="image-map-img" alt="">
+        <% if(station.images.length >= 1) { %>
+            <div class="image-map">
+                <img src="<%= station.images[station.images.length - 1].url%>" class="d-block w-100" alt="">
             </div>
-        <% }) %>
+        <% } %>
     </div>
 </div>
 <footer>
