@@ -46,7 +46,9 @@ const StationSchema = new Schema({
 StationSchema.virtual('properties.popUpMarkup').get(function() {
     return `
     <strong><a href="/stations/${this._id}">${this.location}</a></strong>
-    <p>${this.description.substring(0,40)}...</p>`
+    <p>${this.description.substring(0,40)}...</p>
+    <img src="${this.images.url}">
+    `
 });
 
 module.exports = mongoose.model('Station', StationSchema);
