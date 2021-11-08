@@ -46,6 +46,7 @@ const StationSchema = new Schema({
 StationSchema.virtual('properties.popUpMarkup').get(function() {
     return `
     <strong><a href="/stations/${this._id}">${this.location}</a></strong>
+    <p>${this.date}</p>
     <img src="${this.images[this.images.length - 1].url}" style="width:200px;height:200px;">
     `
 });
