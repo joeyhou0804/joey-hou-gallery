@@ -47,11 +47,7 @@ StationSchema.virtual('properties.popUpMarkup').get(function() {
     return `
     <strong><a href="/stations/${this._id}">${this.location}</a></strong>
     <p>${this.description.substring(0,40)}...</p>
-    <div class="map">
-        <%= if(this.station.images.length >= 1 && this.station.haveMap[0] === 'Y') { %>
-            <img src="${this.images[this.images.length - 1].url}" style="width:120px;height:120px;">
-        <%= } %>
-    </div>
+    <img src="${this.images[this.images.length - 1].url}" style="width:120px;height:120px;">
     `
 });
 
