@@ -17,6 +17,7 @@ const StationSchema = new Schema({
     location: String,
     images: [ImageSchema],
     date: String,
+    haveMap: Boolean,
     train: String,
     description: String,
     geometry: {
