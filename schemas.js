@@ -10,4 +10,4 @@ module.exports.stationSchema = Joi.object({
         description: Joi.string(),
     }).required(),
     deleteImages: Joi.array()
-});
+}).options({ allowUnknown: true });
