@@ -1,7 +1,4 @@
 const Station = require('../models/station');
-const mbxGeocoding = require("@mapbox/mapbox-sdk/services/geocoding");
-const mapBoxToken = process.env.MAPBOX_TOKEN;
-const geocoder = mbxGeocoding({accessToken: mapBoxToken});
 
 module.exports.index = async (req, res) => {
     const stations = await Station.find({});
@@ -13,12 +10,7 @@ module.exports.renderNewForm = (req, res) => {
 }
 
 module.exports.createStation = async(req, res, next) => {
-    const geoData = await geocoder.forwardGeocode({
-        query: req.body.station.location,
-        limit: 1
-    }).send()
     const station = new Station(req.body.station);
-    station.geometry = geoData.body.features[0].geometry;
     station.images = req.files.map(f => ({url: f.path, filename: f.filename}));
     station.author = req.user._id;
     await station.save();
