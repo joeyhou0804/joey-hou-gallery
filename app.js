@@ -3,7 +3,6 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 const express = require("express");
-const mongoose = require('mongoose');
 const ejsMate = require('ejs-mate');
 const session = require('express-session');
 const flash = require('connect-flash');
@@ -13,28 +12,10 @@ const path = require('path');
 
 const stations = require('./routes/stations');
 const helmet = require('helmet');
-const mongoSanitize = require('express-mongo-sanitize');
 
 const {stationSchema} = require('./schemas');
-const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/joeyhouhomepage';
-const MongoStore = require('connect-mongo');
 //mongodb://localhost:27017/joeyhouhomepage
 //process.env.DB_URL
-
-//===========================================
-
-mongoose.connect(dbUrl, {
-    useNewUrlParser: true,
-    // useCreateIndex: true,
-    useUnifiedTopology: true,
-    // useFindAndModify: true
-});
-
-const db = mongoose.connection;
-db.on("error", console.error.bind(console, "Connection Error:"));
-db.once("open", () => {
-    console.log("Database Connected!");
-});
 
 //===========================================
 
@@ -47,13 +28,6 @@ app.set('views', path.join(__dirname, 'views'))
 app.use(express.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')))
-app.use(mongoSanitize())
-
-const store = new MongoStore({
-    mongoUrl: dbUrl,
-    secret: 'thisshouldbeabettersecret!',
-    touchAfter: 24 * 60 * 60
-});
 
 store.on("error", function(e){
     console.log("SESSION STORE ERROR", e)
