@@ -28,7 +28,6 @@ app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')))
 
 const sessionConfig = {
-    store,
     name: 'joeyhoucolumbia',
     secret: 'thisshouldbeabettersecret!',
     resave: false,
