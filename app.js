@@ -9,6 +9,8 @@ const flash = require('connect-flash');
 
 const arts = require('./routes/arts');
 const videos = require('./routes/videos');
+const handbooks = require('./routes/handbooks');
+const posters = require('./routes/posters');
 
 const methodOverride = require('method-override');
 const path = require('path');
@@ -59,6 +61,8 @@ app.use(helmet.xssFilter());
 
 app.use('/arts', arts)
 app.use('/videos', videos)
+app.use('/handbooks', handbooks)
+app.use('/posters', posters)
 
 app.use((req, res, next) => {
     res.locals.success = req.flash('Success!');
