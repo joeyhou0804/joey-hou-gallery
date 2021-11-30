@@ -10,10 +10,8 @@ const flash = require('connect-flash');
 const methodOverride = require('method-override');
 const path = require('path');
 
-const stations = require('./routes/stations');
 const helmet = require('helmet');
 
-const {stationSchema} = require('./schemas');
 //mongodb://localhost:27017/joeyhouhomepage
 //process.env.DB_URL
 
@@ -68,8 +66,6 @@ app.use((req, res, next) => {
 })
 
 //===========================================
-
-app.use('/stations', stations)
 
 app.get('/', (req, res) => {
     res.render('home')
