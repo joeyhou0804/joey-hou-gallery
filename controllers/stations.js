@@ -12,7 +12,6 @@ module.exports.renderNewForm = (req, res) => {
 module.exports.createStation = async(req, res, next) => {
     const station = new Station(req.body.station);
     station.images = req.files.map(f => ({url: f.path, filename: f.filename}));
-    station.author = req.user._id;
     await station.save();
     console.log(station);
     req.flash('success', 'Successfully added a new station!');

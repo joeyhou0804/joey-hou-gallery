@@ -20,27 +20,6 @@ const StationSchema = new Schema({
     haveMap: String,
     train: String,
     description: String,
-    geometry: {
-        type: {
-            type: String,
-            enum: ['Point'],
-            required : true
-        },
-        coordinates: {
-            type: [Number],
-            required: true
-        }
-    },
-    author: {
-        type: Schema.Types.ObjectId,
-        ref: 'User'
-    },
-    reviews: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Review'
-        }
-    ]
 }, opts);
 
 StationSchema.virtual('properties.popUpMarkup').get(function() {
