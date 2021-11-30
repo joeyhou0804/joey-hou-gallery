@@ -1,25 +1,18 @@
 <% layout('layouts/boilerplate')%>
 <h1>Station List 车站列表</h1>
-<% for (let station of stations){%>
-    <div class="card mb-3" >
-        <div class="row">
-            <div class="col-md-4">
-                <% if(station.images.length) {%>
-                    <img class="img-fluid" alt="" src="<%= station.images[0].url %>">
-                <% } else { %>
-                    <img class="img-fluid" alt="" src="https://res.cloudinary.com/joey-hou-homepage/image/upload/v1636068109/joeyhouhomepage/train_default_hbnyvq.png">
-                <% } %>
-            </div>
-            <div class="col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title"><%= station.location %></h5>
-                    <p class="card-text"><%= station.date %></p>
-                    <p class="card-text">
-                        <small class="text-muted"><%= station.train%></small>
-                    </p>
-                    <a class="btn btn-primary" href="/stations/<%= station._id%>">View <%=station.location %> 详细信息</a>
-                </div>
+<div class="card mb-3" >
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">Lalala</h5>
+                <p class="card-text">Hehehe</p>
+                <p class="card-text">
+                    <small class="text-muted">woohoo</small>
+                </p>
+                <a class="btn btn-primary" href="">View 详细信息</a>
             </div>
         </div>
     </div>
-<% }%>
+</div>

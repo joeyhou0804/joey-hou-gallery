@@ -1,8 +1,5 @@
-const Station = require('../models/station');
-
 module.exports.index = async (req, res) => {
-    const stations = await Station.find({});
-    res.render('stations/index', {stations})
+    res.render('stations/index');
 }
 
 module.exports.renderNewForm = (req, res) => {
