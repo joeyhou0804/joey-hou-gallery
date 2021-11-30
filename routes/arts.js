@@ -2,11 +2,11 @@ const express = require('express');
 const router = express.Router();
 const catchAsync = require('../utils/catchAsync');
 const ExpressError = require('../utils/ExpressError');
-const stations = require('../controllers/stations');
+const arts = require('../controllers/arts');
 
 //===========================================
 
 router.route('/')
-    .get(catchAsync(stations.index));
+    .get(catchAsync(arts.index));
 
 module.exports = router;
