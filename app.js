@@ -56,6 +56,7 @@ app.use(helmet.xssFilter());
 //===========================================
 
 app.use('/arts', arts)
+app.use('/videos', videos)
 
 app.use((req, res, next) => {
     res.locals.success = req.flash('Success!');
