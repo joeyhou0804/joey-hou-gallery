@@ -27,10 +27,6 @@ app.use(express.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')))
 
-store.on("error", function(e){
-    console.log("SESSION STORE ERROR", e)
-})
-
 const sessionConfig = {
     store,
     name: 'joeyhoucolumbia',
