@@ -30,14 +30,12 @@
                 <li class="list-group-item text-muted"><%= station.train %></li>
                 <li class="list-group-item">Visited by Joey Hou on <%= station.date %></li>
             </ul>
-            <% if(currentUser && station.author._id.equals(currentUser._id)) {%>
             <div class="card-body">
                 <a class="card-link btn btn-info" href="/stations/<%=station._id%>/edit">Edit</a>
                 <form class="d-inline" action="/stations/<%=station._id%>?_method=DELETE" method="POST">
                     <button class="btn btn-danger">Delete</button>
                 </form>
             </div>
-            <% } %>
         </div>
     </div>
     <div class="col-6">
