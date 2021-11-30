@@ -6,7 +6,9 @@ const express = require("express");
 const ejsMate = require('ejs-mate');
 const session = require('express-session');
 const flash = require('connect-flash');
+
 const arts = require('./routes/arts');
+const videos = require('./routes/videos');
 
 const methodOverride = require('method-override');
 const path = require('path');
