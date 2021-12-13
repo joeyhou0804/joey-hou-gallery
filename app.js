@@ -7,10 +7,13 @@ const ejsMate = require('ejs-mate');
 const session = require('express-session');
 const flash = require('connect-flash');
 
+const ExpressError = require('./utils/ExpressError');
+
 const arts = require('./routes/arts');
 const videos = require('./routes/videos');
 const handbooks = require('./routes/handbooks');
 const posters = require('./routes/posters');
+const reports = require('./routes/reports');
 
 const methodOverride = require('method-override');
 const path = require('path');
@@ -63,6 +66,7 @@ app.use('/arts', arts)
 app.use('/videos', videos)
 app.use('/handbooks', handbooks)
 app.use('/posters', posters)
+app.use('/reports', reports)
 
 app.use((req, res, next) => {
     res.locals.success = req.flash('Success!');
