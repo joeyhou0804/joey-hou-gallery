@@ -34,3 +34,9 @@ body {
     color: #333;
     text-shadow: none;
 }
+
+.list-group {
+    color: #333;
+    text-shadow: none;
+    border-color: white;
+}
