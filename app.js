@@ -15,6 +15,7 @@ const videos = require('./routes/videos');
 const handbooks = require('./routes/handbooks');
 const posters = require('./routes/posters');
 const reports = require('./routes/reports');
+const websites = require('./routes/websites');
 
 const methodOverride = require('method-override');
 const path = require('path');
@@ -69,6 +70,7 @@ app.use('/videos', videos)
 app.use('/handbooks', handbooks)
 app.use('/posters', posters)
 app.use('/reports', reports)
+app.use('/websites', websites)
 
 app.use((req, res, next) => {
     res.locals.success = req.flash('Success!');
