@@ -9,6 +9,7 @@ const flash = require('connect-flash');
 
 const ExpressError = require('./utils/ExpressError');
 
+const applications = require('./routes/applications');
 const arts = require('./routes/arts');
 const videos = require('./routes/videos');
 const handbooks = require('./routes/handbooks');
@@ -62,6 +63,7 @@ app.use(helmet.xssFilter());
 
 //===========================================
 
+app.use('/applications', applications)
 app.use('/arts', arts)
 app.use('/videos', videos)
 app.use('/handbooks', handbooks)
